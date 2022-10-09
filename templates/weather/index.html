@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+@File: index.html
+@Author: Alice(From Chengdu.China)
+@HomePage: https://github.com/AliceEngineerPro
+@CreatedTime: 2022/10/9 21:06
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div class="header"></div>
+<div class="body">
+    <form action="{% url 'public:home' %}" method="post">
+        {% csrf_token %}
+    </form>
+</div>
+<div class="footer"></div>
+</body>
+</html>
