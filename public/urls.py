@@ -11,5 +11,5 @@ from public import views
 from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
-    re_path(r'', csrf_exempt(views.PublicTesting.as_view()), name='home')
+    re_path(r'^$', csrf_exempt(views.PublicTesting.as_view()), name='home')
 ]
