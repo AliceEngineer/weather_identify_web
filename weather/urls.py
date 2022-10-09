@@ -6,9 +6,10 @@
 @CreatedTime: 2022/9/20 16:00
 """
 
-from django.urls.conf import path, re_path
+from django.urls.conf import re_path
 from weather import views
+from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
-    path(route='converter/', view=views.images_to_base64, name='converter_images_to_base64'),
+    re_path(route=r'^converter/$', view=csrf_exempt(views.ImagesToBase64.as_view()), name='converter_images_to_base64'),
 ]

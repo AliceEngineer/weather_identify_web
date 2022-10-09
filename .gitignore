@@ -4,3 +4,5 @@ out
 gen
 __pycache__/
 .vscode/
+venv/
+uploads
