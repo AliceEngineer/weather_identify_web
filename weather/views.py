@@ -17,6 +17,7 @@ from django.shortcuts import HttpResponse
 class ImagesToBase64(View):
     
     def get(self, request):
+        self.request.close()
         return HttpResponse(f'{self.request.method}')
     
     def post(self, request):
