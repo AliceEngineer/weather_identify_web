@@ -4,23 +4,27 @@ from django.shortcuts import render
 
 # Create your views here.
 
-from django.views.decorators.csrf import csrf_exempt
-from django.shortcuts import HttpResponse
 from weather_identify_web import settings
 import datetime
 import base64
 from django.http import JsonResponse
 import requests
 import json
+from django.views import View
+from django.shortcuts import HttpResponse
 
 
-@csrf_exempt
-def images_to_base64(request):
-    if request.method == 'POST':
+class ImagesToBase64(View):
+    
+    def get(self, request):
+        self.request.close()
+        return HttpResponse(f'{self.request.method}')
+    
+    def post(self, request):
         data_json_return = {
             'base64': None
         }
-        image = request.FILES.get('image')
+        image = self.request.FILES.get('image')
         image_ext = os.path.splitext(image.name)[1]
         image_name = f'{datetime.datetime.now().strftime("%Y%m%d%H%M%S")}{image_ext}'
         images_folder = rf'{str(settings.BASE_DIR)}/uploads/images'
@@ -38,7 +42,7 @@ def images_to_base64(request):
             data_json_return.update(base64=converter_to_base64)
             image_file.close()
         data_json_return = json.dumps(data_json_return)
-        response = requests.post('http://127.0.0.1:52001/weather/converter/', data=data_json_return)
-        return JsonResponse(data=response, json_dumps_params={'ensure_ascii': False})
-    return HttpResponse('请求方法错误') 
+        # response = requests.post('http://127.0.0.1:52001/weather/converter/', data=data_json_return)
+        # return JsonResponse(data=response, json_dumps_params={'ensure_ascii': False})
+        return JsonResponse(data=data_json_return, json_dumps_params={'ensure_ascii': False})
 
