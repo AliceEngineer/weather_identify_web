@@ -23,6 +23,6 @@ import public.urls
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('weather/', include((weather.urls, 'weather'), namespace='weather')),
-    re_path(r'',include((public.urls, 'public'), namespace='public'))
+    re_path(r'',include((public.urls, 'public'), namespace='public')),
     
 ]
