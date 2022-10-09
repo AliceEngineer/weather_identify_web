@@ -19,10 +19,12 @@ from django.urls import include
 import weather.urls
 from django.urls import re_path
 import public.urls
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('weather/', include((weather.urls, 'weather'), namespace='weather')),
     re_path(r'',include((public.urls, 'public'), namespace='public')),
+    re_path(r'^favicon.ico$', RedirectView.as_view(url=f'https://file.share.alicehome.ltd/pic/logo.ico')),
     
 ]
