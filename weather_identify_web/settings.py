@@ -24,7 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-26k^27gsk4^d)2t8%y1p@6=2d1y)yp$8lx#rf2mu#!$0xat(3u"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -39,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     'weather.apps.WeatherConfig',
+    'public.apps.PublicConfig',
 ]
 
 MIDDLEWARE = [
@@ -80,17 +82,6 @@ WSGI_APPLICATION = "weather_identify_web.wsgi.application"
 #     "default": {
 #         "ENGINE": "django.db.backends.sqlite3",
 #         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': "django.db.backends.mysql",
-#         'HOST': '10.31.101.2',
-#         'PORT': 13306,
-#         'USER': 'root',
-#         'PASSWORD': 'root',
-#         'NAME': 'weather_db'
 #     }
 # }
 
