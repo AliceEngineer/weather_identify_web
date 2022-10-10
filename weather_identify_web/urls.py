@@ -23,8 +23,8 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('weather/', include((weather.urls, 'weather'), namespace='weather')),
-    re_path(r'',include((public.urls, 'public'), namespace='public')),
     re_path(r'^favicon.ico$', RedirectView.as_view(url=f'https://file.share.alicehome.ltd/pic/logo.ico')),
+    re_path(r'^weather/', include((weather.urls, 'weather'), namespace='weather')),
+    re_path(r'^',include((public.urls, 'public'), namespace='public')),
     
 ]
