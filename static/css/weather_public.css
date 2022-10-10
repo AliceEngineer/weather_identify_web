@@ -1,0 +1,15 @@
+@import url(/static/node_modules/bootstrap/dist/css/bootstrap.min.css);
+
+. {
+    background: rgba(255, 255, 255, 100%);
+}
+
+.header {
+    
+}
+
+.header .title_text {
+    text-align: center;
+    font-family: "Microsoft YaHei UI Light", serif;
+    font-size: xx-large;
+}

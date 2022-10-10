@@ -1,0 +1,27 @@
+@import url(/static/node_modules/bootstrap/dist/css/bootstrap.min.css);
+
+. {
+    box-sizing: border-box;
+}
+
+.upload_image {
+    text-align: center;
+}
+
+.image {
+    vertical-align: middle;
+}
+
+.response_data_json {
+    margin: 1px 10px;
+}
+
+.response_data_json span {
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+}
+
+.options_button {
+    float: right;
+}
