@@ -9,11 +9,12 @@
 <head>
     <meta charset="UTF-8">
     <title>天气识别</title>
+    <link rel="stylesheet" href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css">
     {# 导入static #}
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/weather_public.css' %}">
     <link rel="stylesheet" href="{% static 'css/weather_index.css' %}" type="text/css">
-    <link rel="stylesheet" href="{% static 'node_modules/bootstrap/dist/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css">
+
 </head>
 <body>
 <div class="header">
@@ -22,15 +23,15 @@
     </div>
 </div>
 <div class="body">
-    <form action="{% url 'weather:converter_images_to_base64' %}" method="post" name="submit_data" enctype="multipart/form-data">
-{#            <label for="inputGroupFile02" class="form-label">请选择要识别的图片:</label>#}
-{#            <input type="file" id="inputGroupFile02" name="image" class="form-control" accept="image/png, .jpg, .jpeg">#}
-        <label for="file_images" class="form-label"><span>请选择要识别的图片:</span></label>
-        <div class="input-group mb-3">
-            <input type="file" class="form-control" id="file_images" name="image">
-            <input type="submit" name="button_submit" value="开始识别" class="input-group-text btn btn-primary">
-        </div>
-    </form>
+    <div class="form_data">
+        <form action="{% url 'weather:converter_images_to_base64' %}" method="post" name="submit_data" enctype="multipart/form-data">
+            <label for="file_images" class="form-label"><span>请选择要识别的图片:</span></label>
+            <div class="input-group mb-3">
+                <input type="file" class="form-control" id="file_images" name="image">
+                <input type="submit" name="button_submit" value="开始识别" class="input-group-text btn btn-primary">
+            </div>
+        </form>
+    </div>
 </div>
 <div class="footer"></div>
 </body>

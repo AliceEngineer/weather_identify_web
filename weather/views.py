@@ -11,6 +11,8 @@ from django.http import JsonResponse
 import requests
 import json
 from django.views import View
+from django.shortcuts import redirect
+from django.urls import reverse
 
 
 class ImagesToBase64(View):
@@ -52,4 +54,7 @@ class ImagesToBase64(View):
         data_json_return = json.dumps(data_dict_return)
         # response = requests.post('http://127.0.0.1:52001/weather/converter/', data=data_json_return)
         # 返回json类型
-        return JsonResponse(data=data_dict_return, json_dumps_params={'ensure_ascii': False})
+        # return JsonResponse(data=data_dict_return, json_dumps_params={'ensure_ascii': False})
+        return render(self.request, template_name='weather/identify.html', context=locals())
+        
+

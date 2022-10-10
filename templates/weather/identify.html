@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+@File: identify.html
+@Author: Alice(From Chengdu.China)
+@HomePage: https://github.com/AliceEngineerPro
+@CreatedTime: 2022/10/10 12:15
+-->
+<head>
+    <meta charset="UTF-8">
+    <title>天气识别1</title>
+    <link rel="stylesheet" href="/static/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/weather_public.css' %}">
+    <link rel="stylesheet" href="{% static 'css/weather_ifentify.css' %}">
+</head>
+<body>
+<div class="header">
+    <div class="title_text">
+        <span>天气现象识别</span>
+    </div>
+</div>
+<div class="body">
+    <div class="upload_image">
+        <img class="image" src="{% static 'images' %}/{{ image_name }}" alt="image">
+    </div>
+    <div class="response_data_json">
+        {% for key, value in data_dict_return.items %}
+            <span>{{ key }}</span>
+        {% endfor %}
+    </div>
+    <div>
+        <div class="options_button">
+            <a href="{% url 'weather:converter_images_to_base64' %}">
+                <button class="btn btn-primary">返回主页</button>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="footer"></div>
+
+</div>
+</body>
+</html>

@@ -5,13 +5,6 @@ from django.shortcuts import render
 from django.views import View
 from django.shortcuts import redirect
 from django.urls import reverse
-from django.shortcuts import HttpResponse
-import os
-import datetime
-from weather_identify_web import settings
-import base64
-import json
-from django.http import JsonResponse
 
 
 
